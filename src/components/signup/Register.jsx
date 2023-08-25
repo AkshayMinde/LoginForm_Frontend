@@ -7,7 +7,7 @@ import AuthForm from '../Auth';
 const Register = () => {
   	const handleRegister = async (email, password) => {
 		try {
-		const response = await axios.post('http://localhost:3001/register', { email, password });
+		const response = await axios.post('https://loginform-6c2n.onrender.com/register', { email, password });
 		console.log('Registration successful:', response.data.token);
 		} catch (error) {
 		console.error('Registration error:', error);
