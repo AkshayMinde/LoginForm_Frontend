@@ -1,14 +1,16 @@
 import React from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/esm/Button';
 import AuthForm from '../Auth';
 
 const Register = () => {
+    const navigate = useNavigate();
   	const handleRegister = async (email, password) => {
 		try {
 		const response = await axios.post('https://loginform-6c2n.onrender.com/register', { email, password });
 		console.log('Registration successful:', response.data.token);
+    navigate('/');
 		} catch (error) {
 		console.error('Registration error:', error);
 		}

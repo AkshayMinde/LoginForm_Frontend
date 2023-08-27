@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Button from 'react-bootstrap/esm/Button';
 
@@ -7,10 +7,13 @@ import AuthForm from '../Auth';
 
 
 const UserLogin = () => {
+  const navigate = useNavigate();
   const handleLogin = async (email, password) => {
     try {
       const response = await axios.post('https://loginform-6c2n.onrender.com/login', { email, password });
       console.log('Login successful:', response.data.token);
+      navigate('https://recorder-fmc2.onrender.com/')
+
     } catch (error) {
       console.error('Login error:', error);
     }
