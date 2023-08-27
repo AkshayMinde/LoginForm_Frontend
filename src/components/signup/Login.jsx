@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import axios from 'axios';
 import Button from 'react-bootstrap/esm/Button';
 
@@ -12,7 +12,8 @@ const UserLogin = () => {
     try {
       const response = await axios.post('https://loginform-6c2n.onrender.com/login', { email, password });
       console.log('Login successful:', response.data.token);
-      response.redirect('https://recorder-fmc2.onrender.com/')
+      window.location.href = 'https://recorder-fmc2.onrender.com/';
+    
 
     } catch (error) {
       console.error('Login error:', error);
